@@ -32,6 +32,13 @@ This project demonstrates a simple cross-cloud analytics workflow using AWS and 
 # Architecture
 
 AWS S3 stores the datasets, while BigQuery Omni accesses and queries the data without moving it into Google Cloud Storage.
+```mermaid
+flowchart LR
+    A[Amazon S3 Bucket<br/>CSV Files] --> B[AWS IAM Role<br/>S3 Access Policy]
+    B --> C[BigQuery Omni Connection<br/>aws-eu-central-1]
+    C --> D[BigQuery External Tables<br/>category_analysis<br/>state_analysis]
+    D --> E[SQL Queries in BigQuery]
+```
 
 ---
 
